@@ -19,8 +19,6 @@ def run():
     cleaner = clean_screen()
     cleaner.clean()
 
-    print(os.name)
-
 
 if __name__ == '__main__':
     run()

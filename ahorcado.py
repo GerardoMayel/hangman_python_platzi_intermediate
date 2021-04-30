@@ -32,7 +32,23 @@ class player(clean_screen):
 
     def ask_name(self):
         self.name = input('Enter your player nickname: ')
+
         return self.name
+
+
+# Data Reading Module
+
+
+class data_reader():
+    def __init__(self):
+        self.data = []
+
+    def txt_reader(self):
+        with open("./Data/data.txt", 'r', encoding='utf8') as f:
+            for line in f:
+                line = line.replace('\n', '')
+                self.data.append(line)
+        return self.data
 
 
 def run():
@@ -41,6 +57,8 @@ def run():
     player_1 = player()
     player_1.clean()
     print(player_1.ask_name())
+    data_1 = data_reader()
+    print(data_1.txt_reader())
 
 
 if __name__ == '__main__':

@@ -36,18 +36,22 @@ class player(clean_screen):
         return self.name
 
 
-# Data Reading Module
+# Data Reading Data Module
 
 
 class data_reader():
     def __init__(self):
         self.data = []
+        self.difficulty = []
 
     def txt_reader(self):
         with open("./Data/data.txt", 'r', encoding='utf8') as f:
             for line in f:
                 line = line.replace('\n', '')
                 self.data.append(line)
+            for i in self.data:
+                self.difficulty.append(self.data[i])
+
         return self.data
 
 

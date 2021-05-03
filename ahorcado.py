@@ -1,7 +1,9 @@
 
 # Import OS library to identify OS, for Lunix and Mac OS the name is 'posix'
 # For Windows os.name is 'nt'
+# Import Random for Random Words
 
+import random
 import os
 from os import system
 from os import name
@@ -40,19 +42,20 @@ class player(clean_screen):
 
 
 class data_reader():
+
     def __init__(self):
         self.data = []
-        self.difficulty = []
+        self.word_length = []
 
     def txt_reader(self):
+
         with open("./Data/data.txt", 'r', encoding='utf8') as f:
             for line in f:
                 line = line.replace('\n', '')
                 self.data.append(line)
-            for i in self.data:
-                self.difficulty.append(self.data[i])
-
-        return self.data
+            for i in range(len(self.data)):
+                self.word_length.append((self.data[i], len(self.data[i])))
+        return self.word_length
 
 
 def run():
